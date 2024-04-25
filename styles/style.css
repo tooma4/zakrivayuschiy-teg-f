@@ -14,7 +14,588 @@
 
 */
 
+/* BODY - PAGE */
+
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  max-inline-size: 1440px;
+
+  font-family: var(--main-font, sans-serif);
+  /* font-variation-settings: "wght" 400; */
+  background-color: var(--background-color);
+  color: var(--accent-color);
+
+  background-image: var(--background-liner-gradient);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0 clamp(0rem, -8.1426rem + 34.7418vw, 23.125rem);
+}
+
+/* HEADER */
+
+.header {
+  margin-block-start: 100px;
+  /* width: clamp(371px, 696px, 696px); */
+  max-width: 696px;
+  min-height: 364px;
+
+  border: 2px solid var(--accent-color);
+  background-color: var(--background-color);
+
+  font-family: "Press Start 2P", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* HEADER - Логотоп*/
+
+.header__logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header__logo {
+  padding: clamp(7.5rem, 4.147899999999993rem + 1.5023vw, 8.5rem)
+    clamp(0.875rem, -1.4577rem + 9.9531vw, 7.5rem) 21px
+    clamp(0.875rem, -1.4577rem + 9.9531vw, 7.5rem);
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  font-style: normal;
+  line-height: 65px;
+}
+
+.header__heading {
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  line-height: 23px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+/* HEADER - Навигация*/
+
+.theme-menu__list {
+  margin-block-start: 13px;
+  margin-inline-start: 21px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.theme-menu__button {
+  background-color: transparent;
+  appearance: none;
+  border: 1px solid transparent;
+
+  font-size: 14px;
+  line-height: 14px;
+
+  text-transform: uppercase;
+}
+
+.theme-menu__button::after {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 2px;
+
+  background-color: var(--accent-color);
+  transform: scaleX(0);
+  transition: width 0.3s, background-color 0.3s;
+}
+
+/* Состояния кнопок в навигации */
+
+.theme-menu__button:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.theme-menu__button:focus {
+  outline: none;
+}
+
+.theme-menu__button:focus-visible {
+  transition-timing-function: ease;
+  opacity: 0.6;
+}
+
+.theme-menu__button:focus-visible::after {
+  transition-timing-function: ease;
+  width: 100%;
+  transform: scaleX(1);
+
+  opacity: 0.6;
+}
+
+.theme-menu__button:disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.theme-menu__button:disabled::before {
+  content: "▶";
+  position: absolute;
+  margin-inline-start: -18px;
+  opacity: 0.6;
+
+  animation: arrow 0.5s infinite ease-in-out;
+}
+
+/* MAIN */
+
+/* Контент */
+
+.content {
+  max-width: 696px;
+  margin-block-start: 102px;
+  display: flex;
+  flex-direction: column;
+  gap: 52px;
+}
+
+/* Карточка */
+
+.card__container {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+
+  background-color: var(--background-color);
+  border: 2px solid var(--accent-color);
+}
+
+/* Заголовок */
+
+.heading__container {
+  max-width: 696px;
+  min-height: 31px;
+  display: flex;
+  align-items: center;
+}
+
+.card__heading {
+  font-weight: 700;
+  font-size: clamp(1.125rem, 1.125rem + 0vw, 1.125rem);
+  line-height: 22px;
+
+  margin-inline-start: 10px;
+
+  color: var(--accent-color);
+}
+
+/* Контейнер картинки */
+
+.image__container {
+  position: relative;
+  max-width: 696px;
+}
+
+.card__image {
+  width: 100%;
+}
+
+/* Фильтры */
+
+.filter-saturate-low {
+  filter: saturate(20%);
+}
+
+.filter-saturate-high {
+  filter: saturate(300%);
+}
+
+.filter-hue-rotate {
+  filter: hue-rotate(30deg);
+}
+
+.filter-invert {
+  filter: invert(80%);
+}
+
+.filter-sepia {
+  filter: sepia(90%);
+}
+
+.filter-blur {
+  filter: blur(10px);
+}
+
+.filter-mix {
+  filter: sepia(40%) contrast(50%) hue-rotate(90deg) saturate(200%) blur(2px);
+}
+
+.card__label {
+  font-family: "Press Start 2P";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+
+  color: var(--accent-color);
+
+  mix-blend-mode: hard-light;
+  opacity: 0.5;
+
+  position: absolute;
+  right: 25px;
+  top: 25px;
+
+  text-shadow: 1px 0 0 var(--color-stroke-text),
+    -1px 0 0 var(--color-stroke-text), 0 1px 0 var(--color-stroke-text),
+    0 -1px 0 var(--color-stroke-text);
+}
+
+@supports (
+  (text-stroke: 1px var(--color-stroke-text)) or
+    (-webkit-text-stroke: 1px var(--color-stroke-text))
+) {
+  .card__label {
+    -webkit-text-stroke: 1px var(--color-stroke-text);
+    text-shadow: 1px var(--color-stroke-text);
+    text-shadow: none;
+    mix-blend-mode: hard-light;
+    color: var(--accent-color);
+  }
+}
+
+/* Контейнер описания */
+
+.description__container {
+  margin-block-start: clamp(1.5625rem, 1.5185rem + 0.1878vw, 1.6875rem);
+  margin-inline-start: 25px;
+  margin-inline-end: 25px;
+
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+
+  color: var(--accent-color);
+
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+}
+
+/* Контейнер кнопки heart и Like */
+
+.container__card__button {
+  margin-block-start: 25px;
+  margin-inline-end: 25px;
+  margin-block-end: 25px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 12px;
+}
+
+.container__card__button span {
+  text-align: center;
+}
+
+/* Кнопка heart */
+
+.heart__button {
+  border: 2px solid transparent;
+  background-color: var(--button-color-background);
+  appearance: none;
+  block-size: 31px;
+  inline-size: 37px;
+}
+
+.heart__button:focus {
+  outline: none;
+}
+
+.heart__button:focus-visible {
+  transition: border 0.3s ease;
+  border: 2px solid var(--accent-color);
+  outline: none;
+}
+
+/* SVG - Сердце */
+
+.sparks {
+  opacity: 0;
+}
+
+/* Состояние - Hover */
+
+.core {
+  fill: transparent;
+  transition-delay: 0.3s;
+}
+
+.like-icon:hover .core {
+  fill: var(--contour-color);
+  transition: fill 0.3s linear;
+}
+
+.main-body {
+  fill: transparent;
+  transition: fill 0.3s linear;
+}
+
+.like-icon:hover .main-body {
+  fill: var(--contour-color);
+  transition: fill 0.3s 0.05s linear;
+}
+
+/* Состояние - Active */
+
+.core {
+  fill: transparent;
+  transition-delay: 0.3s;
+}
+
+.like-icon:active .core {
+  fill: var(--main-body-color);
+  transition: fill 0.3s linear;
+}
+
+.main-body {
+  fill: transparent;
+  transition: fill 0.3s linear;
+}
+
+.like-icon:active .main-body {
+  fill: var(--main-body-color);
+  transition: fill 0.3s 0.05s linear;
+}
+
+/* Состояние - Клик по иконке */
+
+.like-icon.is-liked .core {
+  fill: var(--main-body-color);
+  transition: fill 0.3s linear;
+}
+
+.like-icon.is-liked .main-body {
+  fill: var(--main-body-color);
+  transition: fill 0.3s 0.05s linear;
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--main-body-color);
+  transition: fill 0.3s 0.06s linear;
+}
+
+.like-icon.is-liked .hearth {
+  animation-name: scaleHearth;
+  animation-duration: 0.3s;
+  animation-delay: 0.1s;
+  animation-timing-function: ease-in;
+}
+
+.like-icon.is-liked .sparks {
+  animation-name: sparksHearth;
+  animation-duration: 0.3s;
+  animation-delay: 0.3s;
+  animation-timing-function: ease-in;
+}
+
+/* Кнопка Like */
+
+.card__like-button {
+  position: relative;
+  overflow: hidden;
+  width: 130px;
+  height: 38px;
+
+  background-color: var(--button-color-background);
+  appearance: none;
+  border: 2px solid var(--accent-color);
+}
+
+.card__like-button::after {
+  content: "";
+  position: absolute;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+}
+
+.card__like-button:hover {
+  cursor: pointer;
+}
+
+.card__like-button:hover::after {
+  transform: translateX(0);
+}
+
+.card__like-button:focus {
+  outline: none;
+}
+
+.card__like-button:focus-visible {
+  box-shadow: 2px 2px 0 var(--accent-color);
+  transition-timing-function: ease;
+}
+
+/* Текст кнопки */
+
+.button__text {
+  font-family: "Press Start 2P", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 90%;
+  text-align: center;
+
+  position: relative;
+  z-index: 1;
+  mix-blend-mode: difference;
+
+  color: var(--button-color-text);
+}
+
+/* FOOTER */
+
+.footer {
+  margin-block-start: 52px;
+  margin-block-end: 105px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Кнопка Футера */
+
+.footer__button {
+  min-width: 335px;
+  min-height: 51px;
+
+  position: relative;
+  overflow: hidden;
+
+  background-color: var(--button-color-background);
+  appearance: none;
+  border: 2px solid var(--accent-color);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer__button::after {
+  content: "";
+  position: absolute;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+}
+
+.footer__button:hover {
+  cursor: pointer;
+}
+
+.footer__button:hover::after {
+  transform: translateX(0);
+}
+
+.footer__button:focus {
+  outline: none;
+}
+
+.footer__button:focus-visible {
+  box-shadow: 2px 2px 0 var(--accent-color);
+  transition-timing-function: ease;
+}
+
+.disket__icon {
+  width: 21px;
+  height: 21px;
+  z-index: 1;
+  mix-blend-mode: difference;
+  fill: var(--button-color-text);
+}
+
+dialog {
+  font-family: "Press Start 2P", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 150%;
+  text-transform: uppercase;
+
+  width: 357px;
+  height: 193px;
+  background-color: var(--background-color);
+  color: var(--accent-color);
+}
+
+dialog[open] {
+  display: grid;
+  grid-template-columns: minmax(auto, 39px) 232px;
+  gap: 30px 20px;
+  justify-content: center;
+}
+
+.disket__icon-modal {
+  width: 39px;
+  height: 39px;
+  fill: var(--accent-color);
+}
+
+.close-button {
+  width: 293px;
+  height: 38px;
+
+  background-color: var(--button-color-background);
+  appearance: none;
+  border: 2px solid var(--accent-color);
+
+  cursor: pointer;
+}
+
+/* Медиазапрос */
+
+@media (width <= 375px) {
+  .header {
+    min-height: 326px;
+  }
+
+  .header__logo {
+    padding: 93px 14px 0 14px;
+  }
+
+  .header__heading {
+    padding-block-end: 39px;
+  }
+
+  .theme-menu__list {
+    margin-block-start: -20px;
+  }
+
+  .heading__container {
+    max-width: 367px;
+  }
+
+  .footer {
+    margin-block-end: 0;
+  }
+
+  .footer__button {
+    min-width: 306px;
+    min-height: 80px;
+    flex-direction: column;
+  }
 }

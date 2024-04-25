@@ -1,1 +1,52 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
+:root {
+  /* Переменные шрифта */
+
+  --main-font: "Inter-Variable";
+  --accent-font: "Press Start 2P";
+  --weight-main-text: 400;
+  --weight-main-heading: 700;
+
+  /* Переменная Фона-градиент */
+
+  --background-liner-gradient: repeating-linear-gradient(
+      90deg,
+      #d3d3d3 2px,
+      transparent 2px,
+      transparent 4px,
+      #d3d3d3 4px,
+      #d3d3d3 6px
+    ),
+    repeating-linear-gradient(
+      #d3d3d3 2px,
+      transparent 2px,
+      transparent 4px,
+      #d3d3d3 4px,
+      #d3d3d3 6px
+    ),
+    repeating-linear-gradient(#e7e7e7 0.01%, #1a1a1a);
+
+  /* Переменная цвета фона */
+
+  --background-color: #fff;
+
+  /* Перемнная акцентного цвета */
+
+  --accent-color: #000;
+
+  /* Переменные цвет текста и фона кнопки */
+
+  --button-color-text: #fff;
+  --button-color-background: #fff;
+
+  /* Переменная обводки текста-лейбла */
+
+  --color-stroke-text: #fff;
+
+  /* Переменные иконки сердца */
+
+  --contour-color: #000;
+  --sparks-color: #ff0000;
+  --core-color: #fff;
+  --main-body-color: #ff0000;
+}

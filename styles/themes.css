@@ -4,3 +4,171 @@
 ✦ theme-light — класс светлой темы
 ✦ не забудьте описать стили для изменения темы через медизапрос пользовательских предпочтений
 */
+
+/* Темная тема */
+
+:root.theme-dark {
+  /* Переменные шрифта */
+
+  --weight-main-text: 465;
+  --weight-main-heading: 785;
+
+  /* Переменная Фона-градиент */
+
+  --background-liner-gradient: repeating-linear-gradient(
+      90deg,
+      #000 2px,
+      transparent 2px,
+      transparent 4px,
+      #000 4px,
+      #000 6px
+    ),
+    repeating-linear-gradient(
+      #000 2px,
+      transparent 2px,
+      transparent 4px,
+      #000 4px,
+      #000 6px
+    ),
+    repeating-linear-gradient(#007f0c 0.01%, #004306);
+
+  /* Переменная цвета фона */
+
+  --background-color: #000;
+
+  /* Перемнная акцентного цвета */
+
+  --accent-color: #00cc14;
+
+  /* Переменные цвет текста и фона кнопки */
+
+  --button-color-text: #00cc14;
+  --button-color-background: #000;
+
+  /* Переменная обводки текста-лейбла */
+
+  --color-stroke-text: #000;
+
+  /* Переменные иконки сердца */
+
+  --contour-color: #00cc14;
+}
+
+.theme-dark .card__heading {
+  font-weight: 785;
+}
+
+.theme-dark .description__container {
+  font-weight: 465;
+}
+
+/* Светлая тема */
+
+:root.theme-light {
+  /* Переменные шрифта */
+
+  --weight-main-text: 400;
+  --weight-main-heading: 700;
+
+  /* Переменная Фона-градиент */
+
+  --background-liner-gradient: repeating-linear-gradient(
+      90deg,
+      #d3d3d3 2px,
+      transparent 2px,
+      transparent 4px,
+      #d3d3d3 4px,
+      #d3d3d3 6px
+    ),
+    repeating-linear-gradient(
+      #d3d3d3 2px,
+      transparent 2px,
+      transparent 4px,
+      #d3d3d3 4px,
+      #d3d3d3 6px
+    ),
+    repeating-linear-gradient(#e7e7e7 0.01%, #1a1a1a);
+
+  /* Переменная цвета фона */
+
+  --background-color: #fff;
+
+  /* Перемнная акцентного цвета */
+
+  --accent-color: #000;
+
+  /* Переменные цвет текста и фона кнопки */
+
+  --button-color-text: #fff;
+  --button-color-background: #fff;
+
+  /* Переменная обводки текста-лейбла */
+
+  --color-stroke-text: #fff;
+
+  /* Переменные иконки сердца */
+
+  --contour-color: #000;
+  --sparks-color: #ff0000;
+  --core-color: #fff;
+  --main-body-color: #ff0000;
+}
+
+/* Пользовательская темная тема */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Переменные шрифта */
+
+    --weight-main-text: 465;
+    --weight-main-heading: 785;
+
+    /* Переменная Фона-градиент */
+
+    --background-liner-gradient: repeating-linear-gradient(
+        90deg,
+        #000 2px,
+        transparent 2px,
+        transparent 4px,
+        #000 4px,
+        #000 6px
+      ),
+      repeating-linear-gradient(
+        #000 2px,
+        transparent 2px,
+        transparent 4px,
+        #000 4px,
+        #000 6px
+      ),
+      repeating-linear-gradient(#007f0c 0.01%, #004306);
+
+    /* Переменная цвета фона */
+
+    --background-color: #000;
+
+    /* Перемнная акцентного цвета */
+
+    --accent-color: #00cc14;
+
+    /* Переменные цвет текста и фона кнопки */
+
+    --button-color-text: #00cc14;
+    --button-color-background: #000;
+
+    /* Переменная обводки текста-лейбла */
+
+    --color-stroke-text: #000;
+
+    /* Переменные иконки сердца */
+
+    --contour-color: #00cc14;
+  }
+
+  .theme-auto .card__heading {
+    font-weight: 785;
+  }
+
+  .theme-auto .description__container {
+    font-weight: 465;
+  }
+}
