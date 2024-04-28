@@ -17,42 +17,46 @@
 /* BODY - PAGE */
 
 .page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  max-inline-size: 1440px;
 
   font-family: var(--main-font, sans-serif);
-  /* font-variation-settings: "wght" 400; */
-  background-color: var(--background-color);
-  color: var(--accent-color);
+  font-variation-settings: "wght" var(--weight-main-text) "opsz" 0;
+  background-color: var(--background-color, #fff);
+  color: var(--accent-color, #000);
 
   background-image: var(--background-liner-gradient);
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  margin: 0 clamp(0rem, -8.1426rem + 34.7418vw, 23.125rem);
+}
+
+button {
+  cursor: pointer;
 }
 
 /* HEADER */
 
 .header {
-  margin-block-start: 100px;
-  /* width: clamp(371px, 696px, 696px); */
-  max-width: 696px;
-  min-height: 364px;
-
-  border: 2px solid var(--accent-color);
-  background-color: var(--background-color);
-
-  font-family: "Press Start 2P", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: end;
+
+  margin-block-start: 6.2em;
+  min-width: clamp(23.1875rem, 16.0352rem + 30.5164vw, 43.5rem);
+
+  border: 2px solid var(--accent-color, #000);
+  background-color: var(--background-color, #fff);
+
+  font-family: var(--accent-font, sans-serif);
+  font-weight: 400;
+  font-style: normal;
 }
 
 /* HEADER - Логотоп*/
@@ -64,9 +68,13 @@
 }
 
 .header__logo {
-  padding: clamp(7.5rem, 4.147899999999993rem + 1.5023vw, 8.5rem)
-    clamp(0.875rem, -1.4577rem + 9.9531vw, 7.5rem) 21px
-    clamp(0.875rem, -1.4577rem + 9.9531vw, 7.5rem);
+  /* padding: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem)
+    clamp(0.875rem, -1.4577rem + 9.9531vw, 7.5rem) 0.3em
+    clamp(0.875rem, -1.4577rem + 9.9531vw, 7.5rem); */
+
+  padding-top: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem);
+  padding-bottom: 0.3em;
+
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
   font-style: normal;
   line-height: 65px;
@@ -82,23 +90,25 @@
 /* HEADER - Навигация*/
 
 .theme-menu__list {
-  margin-block-start: 13px;
-  margin-inline-start: 21px;
+  margin-inline-start: 1em;
+  padding: 1.5em;
 
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
 .theme-menu__button {
   background-color: transparent;
-  appearance: none;
   border: 1px solid transparent;
+  appearance: none;
+  text-transform: uppercase;
+  transition: opacity 0.3s;
+
+  position: relative;
 
   font-size: 14px;
   line-height: 14px;
-
-  text-transform: uppercase;
 }
 
 .theme-menu__button::after {
@@ -107,7 +117,7 @@
   width: 0%;
   height: 2px;
 
-  background-color: var(--accent-color);
+  background-color: var(--accent-color, #000);
   transform: scaleX(0);
   transition: width 0.3s, background-color 0.3s;
 }
@@ -121,33 +131,33 @@
 
 .theme-menu__button:focus {
   outline: none;
+  opacity: 0.6;
 }
 
 .theme-menu__button:focus-visible {
-  transition-timing-function: ease;
   opacity: 0.6;
 }
 
 .theme-menu__button:focus-visible::after {
-  transition-timing-function: ease;
   width: 100%;
   transform: scaleX(1);
-
   opacity: 0.6;
 }
 
 .theme-menu__button:disabled {
-  opacity: 0.6;
   pointer-events: none;
+  opacity: 0.6;
 }
 
 .theme-menu__button:disabled::before {
   content: "▶";
   position: absolute;
-  margin-inline-start: -18px;
+  top: 2px;
+  left: -13px;
   opacity: 0.6;
 
   animation: arrow 0.5s infinite ease-in-out;
+  animation-direction: alternate;
 }
 
 /* MAIN */
@@ -155,11 +165,12 @@
 /* Контент */
 
 .content {
-  max-width: 696px;
-  margin-block-start: 102px;
   display: flex;
   flex-direction: column;
-  gap: 52px;
+  gap: 41px;
+  max-width: clamp(23.1875rem, 16.0352rem + 30.5164vw, 43.5rem);
+  /* max-width: 696px; */
+  margin-block-start: 6em;
 }
 
 /* Карточка */
@@ -168,40 +179,40 @@
   display: flex;
   flex-direction: column;
 
-  width: 100%;
+  max-width: 100%;
 
-  background-color: var(--background-color);
-  border: 2px solid var(--accent-color);
+  background-color: var(--background-color, #fff);
+  border: 2px solid var(--accent-color, #000);
 }
 
 /* Заголовок */
-
-.heading__container {
-  max-width: 696px;
-  min-height: 31px;
-  display: flex;
-  align-items: center;
-}
 
 .card__heading {
   font-weight: 700;
   font-size: clamp(1.125rem, 1.125rem + 0vw, 1.125rem);
   line-height: 22px;
 
-  margin-inline-start: 10px;
+  padding: 0.4em 0 0.2em 0.5em;
 
-  color: var(--accent-color);
+  color: var(--accent-color, #000);
+  background-color: var(--background-color, #fff);
+  border-block-end: 2px solid var(--accent-color, #000);
 }
 
 /* Контейнер картинки */
 
 .image__container {
   position: relative;
-  max-width: 696px;
+  max-width: 100%;
+
+  border-block-end: 2px solid var(--accent-color, #000);
 }
 
 .card__image {
   width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
 }
 
 /* Фильтры */
@@ -227,7 +238,7 @@
 }
 
 .filter-blur {
-  filter: blur(10px);
+  filter: blur(6px);
 }
 
 .filter-mix {
@@ -235,13 +246,13 @@
 }
 
 .card__label {
-  font-family: "Press Start 2P";
+  font-family: "Press Start 2P", fantasy;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 14px;
 
-  color: var(--accent-color);
+  color: var(--accent-color, #000);
 
   mix-blend-mode: hard-light;
   opacity: 0.5;
@@ -261,41 +272,41 @@
 ) {
   .card__label {
     -webkit-text-stroke: 1px var(--color-stroke-text);
-    text-shadow: 1px var(--color-stroke-text);
     text-shadow: none;
-    mix-blend-mode: hard-light;
-    color: var(--accent-color);
   }
 }
 
 /* Контейнер описания */
 
 .description__container {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+
   margin-block-start: clamp(1.5625rem, 1.5185rem + 0.1878vw, 1.6875rem);
-  margin-inline-start: 25px;
-  margin-inline-end: 25px;
+  margin-inline-start: 1.2em;
+  /* margin-inline-end: 2em; */
+  /* max-width: 648px; */
+  inline-size: clamp(19.8125rem, 12.5282rem + 31.0798vw, 40.5rem);
 
   font-weight: 400;
   font-size: 18px;
   line-height: 21px;
 
-  color: var(--accent-color);
-
-  display: flex;
-  flex-direction: column;
-  gap: 27px;
+  color: var(--accent-color, #000);
 }
 
 /* Контейнер кнопки heart и Like */
 
 .container__card__button {
-  margin-block-start: 25px;
-  margin-inline-end: 25px;
-  margin-block-end: 25px;
   display: flex;
   justify-content: end;
   align-items: center;
-  gap: 12px;
+  gap: 3px;
+
+  margin-block-start: 1.8em;
+  margin-block-end: 1.6em;
+  margin-inline-end: 1.5em;
 }
 
 .container__card__button span {
@@ -305,11 +316,18 @@
 /* Кнопка heart */
 
 .heart__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   border: 2px solid transparent;
-  background-color: var(--button-color-background);
+  background-color: var(--button-color-background, #fff);
   appearance: none;
-  block-size: 31px;
-  inline-size: 37px;
+
+  block-size: 38px;
+  padding: 0;
+
+  transition: border 0.3s ease;
 }
 
 .heart__button:focus {
@@ -317,9 +335,7 @@
 }
 
 .heart__button:focus-visible {
-  transition: border 0.3s ease;
-  border: 2px solid var(--accent-color);
-  outline: none;
+  border: 2px solid var(--accent-color, #000);
 }
 
 /* SVG - Сердце */
@@ -332,11 +348,12 @@
 
 .core {
   fill: transparent;
-  transition-delay: 0.3s;
+  transition: fill 0.3s linear;
+  transition-delay: 0.03s;
 }
 
 .like-icon:hover .core {
-  fill: var(--contour-color);
+  fill: var(--contour-color, #000);
   transition: fill 0.3s linear;
 }
 
@@ -346,46 +363,40 @@
 }
 
 .like-icon:hover .main-body {
-  fill: var(--contour-color);
+  fill: var(--contour-color, #000);
   transition: fill 0.3s 0.05s linear;
 }
 
 /* Состояние - Active */
 
-.core {
-  fill: transparent;
-  transition-delay: 0.3s;
-}
-
 .like-icon:active .core {
-  fill: var(--main-body-color);
-  transition: fill 0.3s linear;
-}
-
-.main-body {
-  fill: transparent;
+  fill: var(--main-body-color, #ff0000);
   transition: fill 0.3s linear;
 }
 
 .like-icon:active .main-body {
-  fill: var(--main-body-color);
+  fill: var(--main-body-color, #ff0000);
   transition: fill 0.3s 0.05s linear;
 }
 
 /* Состояние - Клик по иконке */
 
 .like-icon.is-liked .core {
-  fill: var(--main-body-color);
+  fill: var(--main-body-color, #ff0000);
   transition: fill 0.3s linear;
 }
 
 .like-icon.is-liked .main-body {
-  fill: var(--main-body-color);
+  fill: var(--main-body-color, #ff0000);
   transition: fill 0.3s 0.05s linear;
 }
 
+.like-icon .contour {
+  transition: fill 0.1s linear;
+}
+
 .like-icon.is-liked .contour {
-  fill: var(--main-body-color);
+  fill: var(--main-body-color, #ff0000);
   transition: fill 0.3s 0.06s linear;
 }
 
@@ -393,6 +404,7 @@
   animation-name: scaleHearth;
   animation-duration: 0.3s;
   animation-delay: 0.1s;
+  animation-direction: alternate;
   animation-timing-function: ease-in;
 }
 
@@ -400,26 +412,25 @@
   animation-name: sparksHearth;
   animation-duration: 0.3s;
   animation-delay: 0.3s;
+  animation-direction: alternate;
   animation-timing-function: ease-in;
 }
 
-/* Кнопка Like */
+/* Общий класс кнопок */
 
-.card__like-button {
+.button {
   position: relative;
   overflow: hidden;
-  width: 130px;
-  height: 38px;
-
-  background-color: var(--button-color-background);
+  background-color: var(--button-color-background, #fff);
   appearance: none;
-  border: 2px solid var(--accent-color);
+  border: 2px solid var(--accent-color, #000);
+  transition: box-shadow 0.3s ease;
 }
 
-.card__like-button::after {
+.button::after {
   content: "";
   position: absolute;
-  background-color: black;
+  background-color: var(--accent-color);
   width: 100%;
   height: 100%;
   top: 0;
@@ -428,27 +439,33 @@
   transition: transform 0.5s ease-in-out;
 }
 
-.card__like-button:hover {
+.button:hover {
   cursor: pointer;
 }
 
-.card__like-button:hover::after {
+.button:hover::after {
   transform: translateX(0);
 }
 
-.card__like-button:focus {
+.button:focus {
   outline: none;
 }
 
-.card__like-button:focus-visible {
-  box-shadow: 2px 2px 0 var(--accent-color);
-  transition-timing-function: ease;
+.button:focus-visible {
+  box-shadow: 2px 2px 0 var(--accent-color, #000);
+}
+
+/* Кнопка Like */
+
+.card__like-button {
+  width: 130px;
+  height: 38px;
 }
 
 /* Текст кнопки */
 
 .button__text {
-  font-family: "Press Start 2P", sans-serif;
+  font-family: "Press Start 2P", fantasy;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -459,64 +476,25 @@
   z-index: 1;
   mix-blend-mode: difference;
 
-  color: var(--button-color-text);
+  color: var(--button-color-text, #fff);
 }
 
-/* FOOTER */
+/* Кнопка дискеты */
 
-.footer {
-  margin-block-start: 52px;
-  margin-block-end: 105px;
-  display: flex;
-  justify-content: center;
-}
-
-/* Кнопка Футера */
-
-.footer__button {
-  min-width: 335px;
-  min-height: 51px;
-
-  position: relative;
-  overflow: hidden;
-
-  background-color: var(--button-color-background);
-  appearance: none;
-  border: 2px solid var(--accent-color);
+.card__save-button {
+  inline-size: 341px;
+  block-size: 58px;
+  margin-block-start: 0.4em;
+  margin-block-end: 80px;
+  padding: 18.5px 21px 18.5px 19px;
 
   display: flex;
   justify-content: center;
   align-items: center;
+  align-self: center;
   gap: 8px;
-}
 
-.footer__button::after {
-  content: "";
-  position: absolute;
-  background-color: black;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  transform: translateX(-100%);
-  transition: transform 0.5s ease-in-out;
-}
-
-.footer__button:hover {
-  cursor: pointer;
-}
-
-.footer__button:hover::after {
-  transform: translateX(0);
-}
-
-.footer__button:focus {
-  outline: none;
-}
-
-.footer__button:focus-visible {
-  box-shadow: 2px 2px 0 var(--accent-color);
-  transition-timing-function: ease;
+  color: var(--button-color-text, #fff);
 }
 
 .disket__icon {
@@ -524,11 +502,12 @@
   height: 21px;
   z-index: 1;
   mix-blend-mode: difference;
-  fill: var(--button-color-text);
 }
 
+/* Модальное окно */
+
 dialog {
-  font-family: "Press Start 2P", sans-serif;
+  font-family: "Press Start 2P", fantasy;
   font-weight: 400;
   font-style: normal;
   text-transform: uppercase;
@@ -537,9 +516,13 @@ dialog {
   text-transform: uppercase;
 
   width: 357px;
-  height: 193px;
-  background-color: var(--background-color);
-  color: var(--accent-color);
+  padding: 30px;
+  background-color: var(--background-color, #fff);
+  color: var(--accent-color, #000);
+}
+
+dialog::backdrop {
+  background-color: rgb(0 0 0 / 0.7);
 }
 
 dialog[open] {
@@ -550,18 +533,24 @@ dialog[open] {
 }
 
 .disket__icon-modal {
+  position: relative;
+  top: 10px;
+  left: 0;
+
   width: 39px;
   height: 39px;
-  fill: var(--accent-color);
+
+  fill: var(--accent-color, #000);
 }
 
 .close-button {
   width: 293px;
   height: 38px;
 
-  background-color: var(--button-color-background);
+  text-transform: uppercase;
+  background-color: var(--button-color-background, #fff);
   appearance: none;
-  border: 2px solid var(--accent-color);
+  border: 2px solid var(--accent-color, #000);
 
   cursor: pointer;
 }
@@ -570,32 +559,25 @@ dialog[open] {
 
 @media (width <= 375px) {
   .header {
-    min-height: 326px;
+    width: 100%;
   }
 
   .header__logo {
-    padding: 93px 14px 0 14px;
+    padding-bottom: 0;
   }
 
-  .header__heading {
-    padding-block-end: 39px;
+  .content {
+    gap: 42px;
   }
 
-  .theme-menu__list {
-    margin-block-start: -20px;
-  }
-
-  .heading__container {
-    max-width: 367px;
-  }
-
-  .footer {
-    margin-block-end: 0;
-  }
-
-  .footer__button {
-    min-width: 306px;
-    min-height: 80px;
+  .card__save-button {
+    max-width: 311px;
+    min-height: 89px;
     flex-direction: column;
+  }
+
+  .disket__icon {
+    width: 28px;
+    height: 28px;
   }
 }
