@@ -68,10 +68,6 @@ button {
 }
 
 .header__logo {
-  /* padding: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem)
-    clamp(0.875rem, -1.4577rem + 9.9531vw, 7.5rem) 0.3em
-    clamp(0.875rem, -1.4577rem + 9.9531vw, 7.5rem); */
-
   padding-top: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem);
   padding-bottom: 0.3em;
 
@@ -188,7 +184,7 @@ button {
 /* Заголовок */
 
 .card__heading {
-  font-weight: 700;
+  font-weight: var(--weight-main-heading);
   font-size: clamp(1.125rem, 1.125rem + 0vw, 1.125rem);
   line-height: 22px;
 
@@ -209,9 +205,10 @@ button {
 }
 
 .card__image {
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
 }
 
@@ -285,11 +282,9 @@ button {
 
   margin-block-start: clamp(1.5625rem, 1.5185rem + 0.1878vw, 1.6875rem);
   margin-inline-start: 1.2em;
-  /* margin-inline-end: 2em; */
-  /* max-width: 648px; */
   inline-size: clamp(19.8125rem, 12.5282rem + 31.0798vw, 40.5rem);
 
-  font-weight: 400;
+  font-weight: var(--weight-main-text);
   font-size: 18px;
   line-height: 21px;
 
@@ -522,7 +517,7 @@ dialog {
 }
 
 dialog::backdrop {
-  background-color: rgb(0 0 0 / 0.7);
+  background-color: rgb(0 0 0 / 0.75);
 }
 
 dialog[open] {
@@ -533,12 +528,9 @@ dialog[open] {
 }
 
 .disket__icon-modal {
-  position: relative;
-  top: 10px;
-  left: 0;
-
   width: 39px;
   height: 39px;
+  margin-block-start: 0.8em;
 
   fill: var(--accent-color, #000);
 }
@@ -563,17 +555,29 @@ dialog[open] {
   }
 
   .header__logo {
-    padding-bottom: 0;
+    padding: 2.3em 0 0.2em 0;
+  }
+
+  .theme-menu__list {
+    padding: 0 0 1.2em 0.2em;
+    margin-block-start: 1.2em;
   }
 
   .content {
-    gap: 42px;
+    margin-block-start: 6.2em;
+    gap: 47px;
+  }
+
+  .description__container {
+    min-width: 322px;
+    margin-block-start: 25.500000000000085px;
   }
 
   .card__save-button {
     max-width: 311px;
     min-height: 89px;
     flex-direction: column;
+    margin-block-start: -0.1em;
   }
 
   .disket__icon {

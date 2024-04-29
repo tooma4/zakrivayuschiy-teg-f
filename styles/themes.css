@@ -54,14 +54,6 @@
   --contour-color: #00cc14;
 }
 
-.theme-dark .card__heading {
-  font-weight: 785;
-}
-
-.theme-dark .description__container {
-  font-weight: 465;
-}
-
 /* Светлая тема */
 
 :root.theme-light {
@@ -162,13 +154,5 @@
     /* Переменные иконки сердца */
 
     --contour-color: #00cc14;
-  }
-
-  .theme-auto .card__heading {
-    font-weight: 785;
-  }
-
-  .theme-auto .description__container {
-    font-weight: 465;
   }
 }
