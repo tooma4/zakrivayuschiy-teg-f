@@ -25,7 +25,8 @@
   min-block-size: 100dvb;
 
   font-family: var(--main-font, sans-serif);
-  font-variation-settings: "wght" var(--weight-main-text) "opsz" 0;
+  font-variation-settings: "wght" var(--weight-main-text), "opsz" 0;
+  /* font-variation-settings: "wght" var(--weight-main-text) "opsz" 0; */
   background-color: var(--background-color, #fff);
   color: var(--accent-color, #000);
 
@@ -165,7 +166,6 @@ button {
   flex-direction: column;
   gap: 41px;
   max-width: clamp(23.1875rem, 16.0352rem + 30.5164vw, 43.5rem);
-  /* max-width: 696px; */
   margin-block-start: 6em;
 }
 
@@ -184,7 +184,7 @@ button {
 /* Заголовок */
 
 .card__heading {
-  font-weight: var(--weight-main-heading);
+  font-variation-settings: "wght" var(--weight-main-heading);
   font-size: clamp(1.125rem, 1.125rem + 0vw, 1.125rem);
   line-height: 22px;
 
@@ -264,7 +264,7 @@ button {
 }
 
 @supports (
-  (text-stroke: 1px var(--color-stroke-text)) or
+  (text-shadow: 1px var(--color-stroke-text)) or
     (-webkit-text-stroke: 1px var(--color-stroke-text))
 ) {
   .card__label {
@@ -278,11 +278,11 @@ button {
 .description__container {
   display: flex;
   flex-direction: column;
-  gap: 27px;
+  gap: 30px;
 
-  margin-block-start: clamp(1.5625rem, 1.5185rem + 0.1878vw, 1.6875rem);
+  margin-block-start: 28px;
   margin-inline-start: 1.2em;
-  inline-size: clamp(19.8125rem, 12.5282rem + 31.0798vw, 40.5rem);
+  max-width: 646px;
 
   font-weight: var(--weight-main-text);
   font-size: 18px;
@@ -565,11 +565,12 @@ dialog[open] {
 
   .content {
     margin-block-start: 6.2em;
-    gap: 47px;
+    gap: 44px;
   }
 
   .description__container {
-    min-width: 322px;
+    max-width: 0;
+    min-width: 318px;
     margin-block-start: 25.500000000000085px;
   }
 
@@ -583,5 +584,10 @@ dialog[open] {
   .disket__icon {
     width: 28px;
     height: 28px;
+  }
+
+  .card__label {
+    right: 9px;
+    top: 20px;
   }
 }
